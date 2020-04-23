@@ -21,6 +21,15 @@ Auth::routes();
 
 Route::get('/home/{id}', 'TaskController@index')->name('home');
 
-Route::post('/p', 'TaskController@store')->name('tasks.store');
+Route::post('/tasks', 'TaskController@store')->name('tasks.store');
 
-//Route::post('/tasks/{id}', 'TaskController@show')->name('tasks.show');
+Route::get('/tasks/{id}', 'TaskController@show')->name('tasks.show');
+
+Route::patch('/tasks/{id}', 'TaskController@complete')->name('tasks.complete');
+
+Route::get('/tasks/{id}/edit', 'TaskController@edit')->name('tasks.edit');
+
+Route::put('/tasks/update/{id}', 'TaskController@update')->name('tasks.update');
+
+Route::delete('/tasks/{id}', 'TaskController@destroy')->name('tasks.destroy');
+

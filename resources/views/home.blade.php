@@ -9,9 +9,15 @@
 
                     <ul>
                         @foreach($users->tasks as $task)
+                            @if($task->status == 'uncompleted')
                             <li>
-                                <a href="#">{{$task->title}}</a>
+                                <a class="btn btn-danger stretched-link" href="{{ route('tasks.show', $task->id) }}">{{$task->title}}</a>
                             </li>
+                            @else
+                                <li>
+                                    <a  class="btn btn-success stretched-link" href="{{ route('tasks.show', $task->id) }}">{{$task->title}}</a>
+                                </li>
+                            @endif
                         @endforeach
                     </ul>
                 </div>
@@ -22,7 +28,7 @@
                     <form action="{{route('tasks.store')}}" method = "post">
                         <div class="form-group">
                             <label for="title"></label>
-                            <input type="text" name = "title" class="form-control" placeholder="name">
+                            <input type="text" name = "title" class="form-control" placeholder="Do something amazing">
                             {{$errors->first('title')}}
                             <small id="emailHelp" class="form-text text-muted">Get it done.</small>
                         </div>
@@ -49,6 +55,18 @@
         form button{
             margin-top: 10px;
         }
+
+        .stretched-link{
+            margin-bottom: 10px;
+        }
+
+        .new_task{
+            text-align: center;
+        }
+
+
+
+
     </style>
 @endsection
 
