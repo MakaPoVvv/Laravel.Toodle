@@ -28,6 +28,7 @@
                                     @method('Patch')
                                     <button type="submit" class="btn btn-primary">Complete</button>
                                     @csrf
+                                 </form>
 
                                      <form action="/tasks/{{$task->id}}/edit">
                                          <button type="submit" class="btn btn-warning" data-dismiss="modal">Edit</button>
@@ -64,7 +65,6 @@
                 </form>
             </div>
         </div>
-    </div>
     </div>
 
     <style>
