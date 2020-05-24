@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <style>
             html, body {
                 background-color: #fff;
@@ -78,14 +79,17 @@
 
                 <div class="links">
                     @auth
-                        <a href="{{ url('/home/'.\Illuminate\Support\Facades\Auth::user()->id) }}">Home</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <a href="{{ url('/home/'.\Illuminate\Support\Facades\Auth::user()->id) }}" class="btn btn-success">Home</a>
+                            <button type="submit" class="btn btn-danger">Logout</button>
+                        </form>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
                             <a href="https://github.com/laravel/laravel">GitHub</a>
-
                         @endif
                     @endauth
                 </div>

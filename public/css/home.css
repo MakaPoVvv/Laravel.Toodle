@@ -1,0 +1,60 @@
+.hidden {
+    display: none;
+}
+
+.new_task {
+    position: fixed; /* or absolute */
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -200px;
+    text-align: center;
+}
+
+.new__task h2 {
+    text-align: center;
+}
+
+form button {
+    margin-top: 10px;
+}
+
+.stretched-link {
+    margin-bottom: 10px;
+}
+
+.tasks {
+    text-align: center;
+    border-right: 3px solid gray;
+    height: 90vh
+}
+
+.dropdown-toggle:after {
+    content: none
+}
+
+
+@media (max-width: 760px) {
+    .hidden {
+        display: initial
+    }
+
+    .new_task {
+        display: none
+    }
+
+    .Shidden {
+        display: none
+    }
+
+    .tasks {
+        border: none;
+        text-align: center;
+    }
+
+    .tasks ul li {
+        text-align: center;
+        list-style: none;
+    }
+
+
+}

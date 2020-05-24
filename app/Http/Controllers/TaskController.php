@@ -12,7 +12,7 @@ class TaskController extends Controller
     public function index($user)
     {
         $users = User::findOrFail($user);
-        if(Auth::id() == $users->id) {
+        if (Auth::id() == $users->id) {
             return view('home', compact('users'));
         }
     }
@@ -23,24 +23,24 @@ class TaskController extends Controller
             'title' => 'required|min:2',
         ]));
 
-        return redirect('home/'.Auth::user()->id);
+        return redirect('home/' . Auth::user()->id);
     }
 
-    public function show(Task $task)
+    public function show($task)
     {
         $task = Task::find($task);
 
         return view('tasks.show', compact('task'));
     }
 
-    public function complete(Task $task)
+    public function complete($task)
     {
         Task::where('id', $task)->update(array('status' => 'completed'));
 
-        return redirect('tasks/'.$task)->with('success','Completed');
+        return redirect('tasks/' . $task)->with('success', 'Completed');
     }
 
-    public function edit(Task $task)
+    public function edit($task)
     {
         $tasks = Task::find($task);
         return view('tasks.edit', compact('tasks'));
@@ -53,13 +53,14 @@ class TaskController extends Controller
             'title' => 'required|min:2',
         ]));
 
-        return redirect('tasks/'.$tasks->id);
+        return redirect('tasks/' . $tasks->id);
     }
 
     public function destroy($task)
     {
         $tasks = Task::find($task);
         $tasks->delete();
-        return redirect('home/'.Auth::user()->id);    }
+        return redirect('home/' . Auth::user()->id);
+    }
 
 }
