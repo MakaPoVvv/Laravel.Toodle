@@ -12,34 +12,35 @@ class TaskController extends Controller
     public function index($user)
     {
         $users = User::findOrFail($user);
-        if(Auth::id() == $users->id)
-        return view('home', compact('users'));
+        if(Auth::id() == $users->id) {
+            return view('home', compact('users'));
+        }
     }
 
     public function store()
     {
-        $data = request()->validate([
+        auth()->user()->tasks()->create(request()->validate([
             'title' => 'required|min:2',
-        ]);
-        auth()->user()->tasks()->create($data);
+        ]));
+
         return redirect('home/'.Auth::user()->id);
     }
 
-    public function show($task)
+    public function show(Task $task)
     {
         $task = Task::find($task);
 
         return view('tasks.show', compact('task'));
     }
 
-    public function complete($task)
+    public function complete(Task $task)
     {
         Task::where('id', $task)->update(array('status' => 'completed'));
 
         return redirect('tasks/'.$task)->with('success','Completed');
     }
 
-    public function edit($task)
+    public function edit(Task $task)
     {
         $tasks = Task::find($task);
         return view('tasks.edit', compact('tasks'));
@@ -47,13 +48,11 @@ class TaskController extends Controller
 
     public function update($task)
     {
-
-        $data = request()->validate([
-            'title' => 'required|min:2',
-        ]);
-
         $tasks = Task::find($task);
-        $tasks->update($data);
+        $tasks->update(request()->validate([
+            'title' => 'required|min:2',
+        ]));
+
         return redirect('tasks/'.$tasks->id);
     }
 
