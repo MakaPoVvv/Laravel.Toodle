@@ -23,9 +23,14 @@ form button {
 }
 
 .tasks {
-    text-align: center;
     border-right: 3px solid gray;
     height: 90vh
+}
+.tasks h2{
+    text-align: center;
+}
+.tasks ul li{
+    margin-bottom: 10px;
 }
 
 .dropdown-toggle:after {

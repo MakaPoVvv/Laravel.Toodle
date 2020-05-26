@@ -54,7 +54,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <span class="Shidden">{{ Auth::user()->name }}</span>
+                                    <img src="{{asset(Auth::user()->image)}}" height="30" width="30" style="border-radius:50%; margin-right: 10px" alt=""><span class="Shidden">{{ Auth::user()->name }}</span>
                                     <a href="#" class="hidden btn btn-success">create</a>
                                 </a>
 
