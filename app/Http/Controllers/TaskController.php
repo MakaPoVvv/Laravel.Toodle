@@ -9,11 +9,19 @@ use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index($user)
     {
         $users = User::findOrFail($user);
         if (Auth::id() == $users->id) {
             return view('home', compact('users'));
+        } else{
+            abort(404);
         }
     }
 
