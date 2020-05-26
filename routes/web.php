@@ -23,6 +23,8 @@ Route::get('/home/{id}', 'TaskController@index')->name('home');
 
 Route::post('/tasks', 'TaskController@store')->name('tasks.store');
 
+Route::get('/tasks/create', 'TaskController@create')->name('tasks.create');
+
 Route::get('/tasks/{id}', 'TaskController@show')->name('tasks.show');
 
 Route::patch('/tasks/{id}', 'TaskController@complete')->name('tasks.complete');

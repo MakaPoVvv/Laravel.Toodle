@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{asset('images/logo.png')}}" height="30" width="100" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -54,8 +54,8 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{asset(Auth::user()->image)}}" height="30" width="30" style="border-radius:50%; margin-right: 10px" alt=""><span class="Shidden">{{ Auth::user()->name }}</span>
-                                    <a href="#" class="hidden btn btn-success">create</a>
+                                    <span class="Shidden"><img src="{{asset(Auth::user()->image)}}" height="30" width="30" style="border-radius:50%; margin-right: 10px" alt="">{{ Auth::user()->name }}</span>
+                                    <a href="{{route('tasks.create')}}" class="hidden btn btn-info">create</a>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

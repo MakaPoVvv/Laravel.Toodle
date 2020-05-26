@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="col-lg-8 col-md-3">
-                <div class="col-lg-3 col-md-3 new_task">
+                <div class="col-lg-4 col-md-3 new_task">
                     <h2>New Task</h2>
                     <form action="{{route('tasks.store')}}" method="post">
                         <div class="form-group">

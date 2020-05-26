@@ -74,7 +74,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Toodle
+                    <img src="{{asset('images/logo.png')}}" height="100" width="250" alt="">
                 </div>
 
                 <div class="links">

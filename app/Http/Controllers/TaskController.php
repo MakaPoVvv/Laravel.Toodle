@@ -17,6 +17,11 @@ class TaskController extends Controller
         }
     }
 
+    public function create()
+    {
+        return view('tasks.create');
+    }
+
     public function store()
     {
         auth()->user()->tasks()->create(request()->validate([
