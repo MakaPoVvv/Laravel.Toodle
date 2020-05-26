@@ -52,14 +52,15 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown d-flex align-items-center">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <span class="Shidden"><img src="{{asset(Auth::user()->image)}}" height="30" width="30" style="border-radius:50%; margin-right: 10px" alt="">{{ Auth::user()->name }}</span>
+                                    <span class="Shidden"><img src="{{asset(Auth::user()->image)}}" height="30" width="30" style="border-radius:50%; margin-right: 10px" alt=""><a
+                                            href="{{route('account', Auth::user()->id)}}" class="Shidden">{{ Auth::user()->name }}</a></span>
                                     <a href="{{route('tasks.create')}}" class="hidden btn btn-info">create</a>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
+                                    <a href="">LOH</a>
                                 </div>
                             </li>
                         @endguest

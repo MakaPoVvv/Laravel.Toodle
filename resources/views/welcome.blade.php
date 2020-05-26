@@ -79,10 +79,10 @@
 
                 <div class="links">
                     @auth
+                        <a href="{{ route('home', Auth::user()->id)}}">Home</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <a href="{{ url('/home/'.\Illuminate\Support\Facades\Auth::user()->id) }}" class="btn btn-success">Home</a>
-                            <button type="submit" class="btn btn-danger">Logout</button>
+                            <button type="submit" class="btn btn-info">Logout</button>
                         </form>
                     @else
                         <a href="{{ route('login') }}">Login</a>

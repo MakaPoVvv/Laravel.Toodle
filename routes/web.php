@@ -35,3 +35,5 @@ Route::put('/tasks/update/{id}', 'TaskController@update')->name('tasks.update');
 
 Route::delete('/tasks/{id}', 'TaskController@destroy')->name('tasks.destroy');
 
+Route::get('/home/{id}/account', 'UserController@index')->name('account');
+
