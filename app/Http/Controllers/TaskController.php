@@ -68,4 +68,13 @@ class TaskController extends Controller
         return redirect('home/' . Auth::user()->id);
     }
 
+    public function destroyCompleted()
+    {
+        $tasks = Task::where('status', 'completed');
+
+        $tasks->delete();
+
+        return redirect('home/'.Auth::user()->id);
+    }
+
 }

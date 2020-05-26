@@ -4,7 +4,15 @@
         <div class="row">
             <div class="col-lg-3 col-sm-12 col-md-6">
                 <div class="tasks">
-                    <h2 style="">All Tasks</h2>
+                    <form action="{{route('tasks.destroyCompleted')}}" method ='post'>
+                        @method('delete')
+                        @csrf
+                        <div class="d-flex align-items-center flex-column">
+                        <h2>All Tasks</h2>
+                    <button type = "submit" class="clear">Clear Completed</button>
+                        </div>
+                    </form>
+
                     <ul>
                         @foreach($users->tasks as $task)
                             @if($task->status == 'uncompleted')

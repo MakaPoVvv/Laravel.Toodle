@@ -57,11 +57,8 @@
                                     <span class="Shidden"><img src="{{asset(Auth::user()->image)}}" height="30" width="30" style="border-radius:50%; margin-right: 10px" alt=""><a
                                             href="{{route('account', Auth::user()->id)}}" class="Shidden">{{ Auth::user()->name }}</a></span>
                                     <a href="{{route('tasks.create')}}" class="hidden btn btn-info">create</a>
+                                    <a href="{{route('account', Auth::user()->id)}}" class="hidden btn btn-primary">personal cabinet</a>
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a href="">LOH</a>
-                                </div>
                             </li>
                         @endguest
                     </ul>
