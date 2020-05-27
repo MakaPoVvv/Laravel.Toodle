@@ -86,13 +86,13 @@ class RegisterController extends Controller
             $avatarName = time() . "." . $avatarUploaded->getClientOriginalExtension();
             $avatarPath = public_path('/uploads');
             $avatarUploaded->move($avatarPath, $avatarName);
-            User::create([
+            Mail::to($data['email'])->send(new RegistrationMail());
+            return User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'image' => '/uploads/' . $avatarName
             ]);
-            return Mail::to($data['email'])->send(new RegistrationMail());
         }
         return User::create([
             'name' => $data['name'],

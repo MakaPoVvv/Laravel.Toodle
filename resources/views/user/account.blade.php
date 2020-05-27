@@ -2,12 +2,12 @@
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center text-center">
-            <div class="col-lg-3 col-lg-6 d-flex">
-                <div class="card mb-3">
+                <div class="card mb-3" style="width:30%;height:60%">
                     <img class="card-img-top" src="{{asset($user->image)}}" height="500" width="100" alt="Card image cap">
                     <div class="card-body">
                         <h2 class="card-title">{{$user->name}}</h2>
                         <p class="card-text">{{$user->email}}</p>
+                        <h3 class="card-text">Overall Completed:{{$user->completed}}</h3>
                     </div>
                     <div class="d-flex justify-content-center">
                     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">

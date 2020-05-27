@@ -50,6 +50,7 @@ class TaskController extends Controller
     public function complete($task)
     {
         Task::where('id', $task)->update(array('status' => 'completed'));
+        Auth::user()->increment('completed');
 
         return redirect('tasks/' . $task)->with('success', 'Completed');
     }
