@@ -39,6 +39,6 @@ Route::delete('/tasks/delete/completed', 'TaskController@destroyCompleted')->nam
 
 Route::get('/home/{id}/account', 'UserController@index')->name('account');
 Route::get('/home/{id}/account/edit', 'UserController@edit')->name('account.edit');
-Route::patch('/home/{id}/account/update/image', 'UserController@updateImage')->name('account.update');
+Route::patch('/home/{id}/account/update/image', 'UserController@updateImage')->name('account.updateImage');
 Route::patch('/home/{id}/account/update', 'UserController@update')->name('account.update');
 

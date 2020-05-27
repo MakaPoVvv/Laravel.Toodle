@@ -6,7 +6,7 @@
                     <img class="card-img-top" src="{{asset($user->image)}}" height="500" width="100"  alt="Card image cap">
                     <div class="d-flex justify-content-center">
                         <div class="form-group">
-                        <form action="{{route('account.update', $user->id)}}" method ="post" enctype="multipart/form-data">
+                        <form action="{{route('account.updateImage', $user->id)}}" method ="post" enctype="multipart/form-data">
                             @method('patch')
                             @csrf
                             <input class="form-group" type="file" name="image">
