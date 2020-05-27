@@ -32,7 +32,7 @@ class TaskController extends Controller
     public function store()
     {
         auth()->user()->tasks()->create(request()->validate([
-            'title' => 'required|min:2',
+            'title' => 'required|min:2|max:100',
         ]));
 
         return redirect('home/' . Auth::user()->id);

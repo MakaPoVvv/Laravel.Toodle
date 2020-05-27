@@ -21,6 +21,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+
+{{--browser's icon--}}
+    <link rel="icon" href="{{asset('images/1-10400_clipart-green-check-mark-icon-check-favicon-png-removebg-preview.png')}}" style="background-color: transparent">
 </head>
 <body>
     <div id="app">

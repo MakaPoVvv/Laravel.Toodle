@@ -12,7 +12,6 @@
                     <button type = "submit" class="clear">Clear Completed</button>
                         </div>
                     </form>
-
                     <ul>
                         @foreach($users->tasks as $task)
                             @if($task->status == 'uncompleted')
