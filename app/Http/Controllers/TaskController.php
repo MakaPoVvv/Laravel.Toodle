@@ -17,11 +17,11 @@ class TaskController extends Controller
 
     public function index($user)
     {
-        $users = User::findOrFail($user);
-        if (Auth::id() != $users->id) {
+        $tasks = Task::where('user_id', $user)->paginate(10);
+        if (Auth::id() != $user) {
             abort(404);
         }
-        return view('home', compact('users'));
+        return view('home', compact('tasks'));
     }
 
     public function create()

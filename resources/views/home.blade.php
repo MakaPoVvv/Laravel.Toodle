@@ -12,8 +12,9 @@
                     <button type = "submit" class="clear">Clear Completed</button>
                         </div>
                     </form>
+
                     <ul>
-                        @foreach($users->tasks as $task)
+                        @foreach($tasks as $task)
                             @if($task->status == 'uncompleted')
                                 <li>
                                     <a class="btn btn-danger"
@@ -27,7 +28,10 @@
                             @endif
                         @endforeach
                     </ul>
+
                 </div>
+                {{$tasks->links()}}
+
             </div>
             <div class="col-lg-8 col-md-3">
                 <div class="col-lg-4 col-md-3 new_task">
