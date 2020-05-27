@@ -18,11 +18,10 @@ class TaskController extends Controller
     public function index($user)
     {
         $users = User::findOrFail($user);
-        if (Auth::id() == $users->id) {
-            return view('home', compact('users'));
-        } else{
+        if (Auth::id() != $users->id) {
             abort(404);
         }
+        return view('home', compact('users'));
     }
 
     public function create()
@@ -42,7 +41,9 @@ class TaskController extends Controller
     public function show($task)
     {
         $task = Task::find($task);
-
+        if(Auth::user()->id != $task->user->id){
+            abort('404');
+        }
         return view('tasks.show', compact('task'));
     }
 
@@ -82,7 +83,7 @@ class TaskController extends Controller
 
         $tasks->delete();
 
-        return redirect('home/'.Auth::user()->id);
+        return redirect('home/' . Auth::user()->id);
     }
 
 }
