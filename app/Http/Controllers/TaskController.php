@@ -17,7 +17,7 @@ class TaskController extends Controller
 
     public function index($user)
     {
-        $tasks = Task::where('user_id', $user)->paginate(10);
+        $tasks = Task::where('user_id', $user)->orderBy('status', 'desc')->paginate(10);
         if (Auth::id() != $user) {
             abort(404);
         }
