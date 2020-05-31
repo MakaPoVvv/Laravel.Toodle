@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', 'en');
+Route::redirect('/', '/'.App::getLocale());
 
-    Route::get('/{language}', function ($language) {
-        App::setLocale($language);
+    Route::get('/{language}', function () {
         return view('welcome');
     });
 

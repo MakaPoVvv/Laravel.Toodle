@@ -14,5 +14,28 @@ return[
     'complete' => 'Complete',
     'edit' => 'Edit',
     'delete' => 'Delete',
-    'close' => 'Close'
+    'close' => 'Close',
+
+    'statusCompleted' => 'Заверешенное',
+    'statusUncompleted' => 'Незавершенное',
+
+
+    'home' => 'Tasks',
+    'logout' => 'Logout',
+    'login' => 'Login',
+    'register' => 'Register',
+
+    'remember' => 'Remember me',
+    'password' => 'Password',
+    'forgot' => 'Forgot your password?',
+
+    'name' => 'Name',
+    'conf' => 'Confirm password',
+    'avatar' => 'Avatar',
+
+    'changeName' => 'Change name',
+    'submit' => 'Submit',
+    'overall' => 'Overall compeleted',
+    'uncompleted' => 'In progress',
+    'completed' => 'Completed'
 ];
