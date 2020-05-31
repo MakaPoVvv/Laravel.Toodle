@@ -16,8 +16,8 @@ return[
     'delete' => 'Delete',
     'close' => 'Close',
 
-    'statusCompleted' => 'Заверешенное',
-    'statusUncompleted' => 'Незавершенное',
+    'statusCompleted' => 'Сompleted',
+    'statusUncompleted' => 'In progress',
 
 
     'home' => 'Tasks',
@@ -37,5 +37,7 @@ return[
     'submit' => 'Submit',
     'overall' => 'Overall compeleted',
     'uncompleted' => 'In progress',
-    'completed' => 'Completed'
+    'completed' => 'Completed',
+
+    'editTask' => 'Edit Task',
 ];

@@ -31,8 +31,12 @@ form button {
     text-align: center;
 }
 
+.title{
+    border-bottom: 3px solid gray;
+}
+
 .tasks ul li {
-    margin-bottom: 10px;
+    margin:10px 0;
 }
 
 .dropdown-toggle:after {
@@ -69,6 +73,11 @@ form button {
         text-align: center;
         margin-right: 50px;
         list-style: none;
+    }
+    .new__task{
+        display: flex;
+        flex-direction: column;
+        right: 50%;
     }
 
 }

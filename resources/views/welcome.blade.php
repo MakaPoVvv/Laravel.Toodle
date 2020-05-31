@@ -12,6 +12,9 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+
+        <link rel="icon" href="{{asset('images/1-10400_clipart-green-check-mark-icon-check-favicon-png-removebg-preview.png')}}" style="background-color: transparent">
+
         <style>
             html, body {
                 background-color: #fff;
@@ -81,6 +84,8 @@
                         <a class="lang" href="{{url(Route::currentRouteName().'/ru')}}">ru</a>
                     <img src="{{asset('/images/download.png')}}" width="20", height="20" alt="">
                         <a class="lang" href="{{url(Route::currentRouteName().'/en')}}">en</a>
+                        <img src="{{asset('/images/download (1).png')}}" width="20", height="20" alt="">
+                            <a class="lang" href="{{url(Route::currentRouteName().'/uk')}}">uk</a>
                     </div>
                 </div>
 

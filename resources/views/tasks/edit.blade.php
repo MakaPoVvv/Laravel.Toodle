@@ -1,13 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-3 overflow: scroll">
-
-            </div>
-            <div class="col-9">
-                <div class="col-lg-3 new__task">
-                    <h2>Edit Task</h2>
+    <div class="container-fluid ">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-9 d-flex ">
+                <div class="col-lg-3 new__task text-center">
+                    <h2>{{__('message.editTask')}}</h2>
                     <form action="{{url('/tasks/'.app()->getLocale().'/update'. '/'. $tasks->id)}}" method = "post">
                         @method("Put")
                         <div class="form-group">
@@ -16,7 +13,7 @@
                             {{$errors->first('title')}}
                             <small id="emailHelp" class="form-text text-muted">Get it done.</small>
                         </div>
-                        <button type="submit" class="btn btn-primary">Edit task</button>
+                        <button type="submit" class="btn btn-primary">{{__('message.edit')}}</button>
                         @csrf
                     </form>
                 </div>

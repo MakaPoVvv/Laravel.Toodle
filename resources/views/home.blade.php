@@ -7,7 +7,7 @@
                     <form action="{{route('tasks.destroyCompleted', app()->getLocale())}}" method ='post'>
                         @method('delete')
                         @csrf
-                        <div class="d-flex align-items-center flex-column">
+                        <div class="title d-flex align-items-center flex-column">
                         <h2>{{__('message.all')}}</h2>
                     <button type = "submit" class="clear">{{__('message.clear')}}</button>
                         </div>
