@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-10">
-                        <form action="{{ route('account.update', $user->id) }}" method="post">
+                        <form action="{{ url('/home/'.app()->getLocale().'/'.$user->id.'/account/update')}}" method="post">
                             @method('Patch')
                             @csrf
                             <div class="form-group">

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\App;
 use App\Task;
 use App\User;
 use Illuminate\Http\Request;
@@ -15,10 +15,10 @@ class TaskController extends Controller
         $this->middleware('auth');
     }
 
-    public function index($user)
+    public function index(Request $request)
     {
-        $tasks = Task::where('user_id', $user)->orderBy('status', 'desc')->paginate(10);
-        if (Auth::id() != $user) {
+        $tasks = Task::where('user_id', $request->id)->orderBy('status', 'desc')->paginate(10);
+        if (Auth::id() != $request->id) {
             abort(404);
         }
         return view('home', compact('tasks'));
@@ -35,47 +35,48 @@ class TaskController extends Controller
             'title' => 'required|min:2|max:100',
         ]));
 
-        return redirect('home/' . Auth::user()->id);
+        return redirect('home/' . app()->getLocale(). '/'. Auth::user()->id);
     }
 
-    public function show($task)
+    public function show(Request $request)
     {
-        $task = Task::find($task);
-        if(Auth::user()->id != $task->user->id){
+        $task = Task::find($request->id);
+//        $status = Task::status($request->id);
+        if(Auth::user()->id != $request->user()->id){
             abort('404');
         }
         return view('tasks.show', compact('task'));
     }
 
-    public function complete($task)
+    public function complete(Request $request)
     {
-        Task::where('id', $task)->update(array('status' => 'completed'));
+        Task::where('id', $request->id)->update(array('status' => 'completed'));
         Auth::user()->increment('completed');
 
-        return redirect('tasks/' . $task)->with('success', 'Completed');
+        return redirect('tasks/' .\app()->getLocale().'/'.$request->id)->with('success', __('message.success'));
     }
 
-    public function edit($task)
+    public function edit(Request $request)
     {
-        $tasks = Task::find($task);
+        $tasks = Task::find($request->id);
         return view('tasks.edit', compact('tasks'));
     }
 
-    public function update($task)
+    public function update(Request $request)
     {
-        $tasks = Task::find($task);
+        $tasks = Task::find($request->id);
         $tasks->update(request()->validate([
             'title' => 'required|min:2',
         ]));
 
-        return redirect('tasks/' . $tasks->id);
+        return redirect('tasks/' .app()->getLocale().'/'. $tasks->id);
     }
 
-    public function destroy($task)
+    public function destroy(Request $request)
     {
-        $tasks = Task::find($task);
+        $tasks = Task::find($request->id);
         $tasks->delete();
-        return redirect('home/' . Auth::user()->id);
+        return redirect('home/' .app()->getLocale().'/'. Auth::user()->id);
     }
 
     public function destroyCompleted()
@@ -84,7 +85,7 @@ class TaskController extends Controller
 
         $tasks->delete();
 
-        return redirect('home/' . Auth::user()->id);
+        return redirect('home/' . app()->getLocale(). '/'. Auth::user()->id);
     }
 
 }

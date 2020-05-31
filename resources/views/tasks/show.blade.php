@@ -9,24 +9,27 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Title: {{$task->title}}</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">{{__('message.title')}}: {{$task->title}}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true"></span>
                                 </button>
                             </div>
-                            <div class="modal-body">
-                                Status: {{$task->status}}
+                            <div class="modal-body">@if($task->status == 'completed')
+                                {{__('message.status')}}: {{__('message.statusCompleted')}}
+                                @else
+                                    {{__('message.status')}}: {{__('message.statusUncompleted')}}
+                                                        @endif
                             </div>
                             <div class="modal-footer">
                                 @if($task->status == 'uncompleted')
-                                    <form action="{{route('tasks.complete', $task->id)}}" method="post">
+                                    <form action="{{'/tasks/'.app()->getLocale().'/'.$task->id}}" method="post">
                                         @method('Patch')
-                                        <button type="submit" class="btn btn-primary">Complete</button>
+                                        <button type="submit" class="btn btn-primary">{{__('message.complete')}}</button>
                                         @csrf
                                     </form>
 
-                                    <form action="/tasks/{{$task->id}}/edit">
-                                        <button type="submit" class="btn btn-warning" data-dismiss="modal">Edit</button>
+                                    <form action=" {{url('/tasks/'.app()->getLocale().'/'.$task->id.'/edit')}}">
+                                        <button type="submit" class="btn btn-warning" data-dismiss="modal">{{__('message.edit')}}</button>
                                         @csrf
                                     </form>
                                 @else
@@ -38,15 +41,15 @@
 
 
 
-                                    <form action="{{route('tasks.destroy', $task->id)}}" method="post">
+                                    <form action="{{url('/tasks/'.app()->getLocale().'/'.$task->id)}}" method="post">
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger" data-dismiss="modal">Delete
+                                        <button type="submit" class="btn btn-danger" data-dismiss="modal">{{__('message.delete')}}
                                         </button>
                                         @csrf
                                     </form>
 
-                                    <form action="{{route('home', \Illuminate\Support\Facades\Auth::user()->id)}}">
-                                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close
+                                    <form action="{{url('home/'. app()->getLocale(). '/'.Auth::user()->id)}}">
+                                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">{{__('message.close')}}
                                         </button>
                                         @csrf
                                     </form>

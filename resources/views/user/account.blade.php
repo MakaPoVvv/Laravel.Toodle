@@ -6,7 +6,7 @@
                     <img class="card-img-top" src="{{asset($user->image)}}" height="500" width="100"  alt="Card image cap">
                     <div class="d-flex justify-content-center">
                         <div class="form-group">
-                        <form action="{{route('account.updateImage', $user->id)}}" method ="post" enctype="multipart/form-data">
+                        <form action="{{url('/home/'.app()->getLocale().'/'.$user->id.'/account/update/image')}}" method ="post" enctype="multipart/form-data">
                             @method('patch')
                             @csrf
                             <input class="form-group" type="file" name="image">
@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <h2 class="card-title">{{$user->name}}<a href="{{route('account.edit', $user->id)}}" class="btn btn-link">Change name</a>
+                        <h2 class="card-title">{{$user->name}}<a href="{{url('/home/'.app()->getLocale().'/'.$user->id.'/account/edit')}}" class="btn btn-link">Change name</a>
                         </h2>
                         <p class="card-text">{{$user->email}}</p>
                         <h3 class="card-text">Overall Completed:{{$user->completed}}</h3>

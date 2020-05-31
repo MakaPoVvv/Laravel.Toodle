@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class Task extends Model
@@ -14,14 +15,13 @@ class Task extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getCompletedTasks()
-    {
-        return Task::where('status', 'completed')->count();
-    }
-
-    public function getUncompletedTasks()
-    {
-        return Task::where('status', 'uncompleted')->count();
-    }
-
+//    public static function status($id)
+//    {
+//        $task = Task::findOrFail($id);
+//        if($task->status == 'completed'){
+//            return __('message.statusCompleted');
+//        } else{
+//            return __('message.statusUncompleted');
+//        }
+//    }
 }

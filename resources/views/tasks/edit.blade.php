@@ -8,7 +8,7 @@
             <div class="col-9">
                 <div class="col-lg-3 new__task">
                     <h2>Edit Task</h2>
-                    <form action="/tasks/update/{{$tasks->id}}" method = "post">
+                    <form action="{{url('/tasks/'.app()->getLocale().'/update'. '/'. $tasks->id)}}" method = "post">
                         @method("Put")
                         <div class="form-group">
                             <label for="title"></label>

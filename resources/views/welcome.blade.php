@@ -79,10 +79,10 @@
 
                 <div class="links">
                     @auth
-                        <a href="{{ route('home', Auth::user()->id)}}">Home</a>
+                        <a href="{{ url('/home/'.app()->getLocale().'/'.Auth::user()->id) }}">{{__('message.home')}}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-info">Logout</button>
+                            <button type="submit" class="btn btn-info">{{__('message.logout')}}</button>
                         </form>
                     @else
                         <a href="{{ route('login') }}">Login</a>

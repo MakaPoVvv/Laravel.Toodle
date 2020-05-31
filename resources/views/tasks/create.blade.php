@@ -3,7 +3,7 @@
     <div class="col-lg-8 col-md-3">
         <div class="col-lg-12 col-md-12">
             <h2>New Task</h2>
-            <form action="{{route('tasks.store')}}" method="post">
+            <form action="{{route('tasks.store', app()->getLocale())}}" method="post">
                 <div class="form-group">
                     <label for="title"></label>
                     <input type="text" name="title" class="form-control" placeholder="Do something amazing">

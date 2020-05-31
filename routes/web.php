@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,32 +14,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', 'en');
 
-Auth::routes();
+    Route::get('/{language}', function ($language) {
+        App::setLocale($language);
+        return view('welcome');
+    });
 
-Route::get('/home/{id}', 'TaskController@index')->name('home');
+    Auth::routes();
 
-Route::post('/tasks', 'TaskController@store')->name('tasks.store');
+    Route::get('/home/{language}/{id}', 'TaskController@index')->name('home');
 
-Route::get('/tasks/create', 'TaskController@create')->name('tasks.create');
+    Route::post('/tasks/{language}', 'TaskController@store')->name('tasks.store');
 
-Route::get('/tasks/{id}', 'TaskController@show')->name('tasks.show');
+    Route::get('/tasks/{language}/create', 'TaskController@create')->name('tasks.create');
 
-Route::patch('/tasks/{id}', 'TaskController@complete')->name('tasks.complete');
+    Route::get('/tasks/{language}/{id}', 'TaskController@show')->name('tasks.show');
 
-Route::get('/tasks/{id}/edit', 'TaskController@edit')->name('tasks.edit');
+    Route::patch('/tasks/{language}/{id}', 'TaskController@complete')->name('tasks.complete');
 
-Route::put('/tasks/update/{id}', 'TaskController@update')->name('tasks.update');
+    Route::get('/tasks/{language}/{id}/edit', 'TaskController@edit')->name('tasks.edit');
 
-Route::delete('/tasks/{id}', 'TaskController@destroy')->name('tasks.destroy');
+    Route::put('/tasks/{language}/update/{id}', 'TaskController@update')->name('tasks.update');
 
-Route::delete('/tasks/delete/completed', 'TaskController@destroyCompleted')->name('tasks.destroyCompleted');
+    Route::delete('/tasks/{language}/{id}', 'TaskController@destroy')->name('tasks.destroy');
 
-Route::get('/home/{id}/account', 'UserController@index')->name('account');
-Route::get('/home/{id}/account/edit', 'UserController@edit')->name('account.edit');
-Route::patch('/home/{id}/account/update/image', 'UserController@updateImage')->name('account.updateImage');
-Route::patch('/home/{id}/account/update', 'UserController@update')->name('account.update');
+    Route::delete('/tasks/delete/{language}/completed', 'TaskController@destroyCompleted')->name('tasks.destroyCompleted');
 
+    Route::get('/home/{language}/{id}/account', 'UserController@index')->name('account');
+    Route::get('/home/{language}/{id}/account/edit', 'UserController@edit')->name('account.edit');
+    Route::patch('/home/{language}/{id}/account/update/image', 'UserController@updateImage')->name('account.updateImage');
+    Route::patch('/home/{language}/{id}/account/update', 'UserController@update')->name('account.update');

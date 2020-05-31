@@ -15,9 +15,9 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    public function index($id)
+    public function index(Request $request)
     {
-        $user = User::find($id);
+        $user = User::find($request->id);
         if (Auth::user()->id != $user->id) {
             abort(404);
         }
@@ -27,21 +27,21 @@ class UserController extends Controller
         return view('user.account', compact('tasks', 'completedTasks', 'uncompletedTasks', 'user'));
     }
 
-    public function edit($id)
+    public function edit(Request $request)
     {
-        $user = User::find($id);
+        $user = User::find($request->id);
         return view('user.edit', compact('user'));
     }
 
-    public function update($id)
+    public function update(Request $request)
     {
-        $user = User::find($id);
+        $user = User::find($request->id);
         $data = \request()->validate([
             'name' => ['required', 'string', 'max:255'],
         ]);
         $user->update($data);
 
-        return redirect('home/' . $id . '/account');
+        return redirect('home/' . app()->getLocale().'/'. $request->id . '/account');
     }
 
     public function updateImage(Request $request)
@@ -56,7 +56,7 @@ class UserController extends Controller
             $user->update([
                 'image' => '/uploads/' . $avatarName
             ]);
-            return redirect('home/' . Auth::user()->id . '/account');
+            return redirect('home/' . app()->getLocale() .'/'. Auth::user()->id . '/account');
         }
     }
 }

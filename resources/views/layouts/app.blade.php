@@ -26,10 +26,11 @@
     <link rel="icon" href="{{asset('images/1-10400_clipart-green-check-mark-icon-check-favicon-png-removebg-preview.png')}}" style="background-color: transparent">
 </head>
 <body>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/'.app()->getLocale()) }}">
                     <img src="{{asset('images/logo.png')}}" height="30" width="100" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -58,9 +59,9 @@
                             <li class="nav-item dropdown d-flex align-items-center">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <span class="Shidden"><img src="{{asset(Auth::user()->image)}}" height="30" width="30" style="border-radius:50%; margin-right: 10px" alt=""><a
-                                            href="{{route('account', Auth::user()->id)}}" class="Shidden">{{ Auth::user()->name }}</a></span>
-                                    <a href="{{route('tasks.create')}}" class="hidden btn btn-info">create</a>
-                                    <a href="{{route('account', Auth::user()->id)}}" class="hidden btn btn-primary">personal cabinet</a>
+                                            href="{{url('/home/'.app()->getLocale().'/'.Auth::user()->id.'/account')}}" class="Shidden">{{ Auth::user()->name }}</a></span>
+                                    <a href="{{route('tasks.create', app()->getLocale())}}" class="hidden btn btn-info">create</a>
+                                    <a href="{{url('/home/'.app()->getLocale().'/'.Auth::user()->id.'/account')}}" class="hidden btn btn-primary">personal cabinet</a>
                                 </a>
                             </li>
                         @endguest
