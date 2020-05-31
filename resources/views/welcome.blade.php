@@ -79,16 +79,16 @@
 
                 <div class="links">
                     @auth
-                        <a href="{{ url('/home/'.app()->getLocale().'/'.Auth::user()->id) }}">{{__('message.home')}}</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        <a href="{{ url('/home/'.app()->getLocale().'/'.Auth::user()->id) }}">Home</a>
+                        <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-info">{{__('message.logout')}}</button>
+                            <button type="submit" class="btn btn-info">Logout</button>
                         </form>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login', app()->getLocale()) }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register', app()->getLocale()) }}">Register</a>
                             <a href="https://github.com/laravel/laravel">GitHub</a>
                         @endif
                     @endauth

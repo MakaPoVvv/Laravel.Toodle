@@ -21,7 +21,10 @@ Route::redirect('/', 'en');
         return view('welcome');
     });
 
+Route::group(['prefix' => '{language}'], function(){
     Auth::routes();
+
+});
 
     Route::get('/home/{language}/{id}', 'TaskController@index')->name('home');
 

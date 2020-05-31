@@ -41,7 +41,7 @@ class RegisterController extends Controller
 
     public function redirectTo()
     {
-        return '/home/'.auth()->user()->id;
+        return '/home/'.app()->getLocale().'/'.auth()->user()->id;
     }
 
 
