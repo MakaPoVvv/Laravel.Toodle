@@ -9,4 +9,4 @@ Main features:
 *Reset password
 *Pagination (10 per page)
 *Multi language (uk, ru, en)
-*Reset password via email
+*Reset password via email and many other minor functions 
