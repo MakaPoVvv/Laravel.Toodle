@@ -6,7 +6,7 @@ return[
     'all' => 'All Tasks',
     'add' => 'Add Task',
     'small' => 'Get it done.',
-    'placeholder' => 'Do something amazing',
+    'placeholder' => 'Your task...',
 
 
     'title' => 'Title',

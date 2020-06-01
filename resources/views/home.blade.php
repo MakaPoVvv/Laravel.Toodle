@@ -7,7 +7,7 @@
                     <form action="{{route('tasks.destroyCompleted', app()->getLocale())}}" method ='post'>
                         @method('delete')
                         @csrf
-                        <div class="title d-flex align-items-center flex-column">
+                        <div class="titleHome d-flex align-items-center flex-column">
                         <h2>{{__('message.all')}}</h2>
                     <button type = "submit" class="clear">{{__('message.clear')}}</button>
                         </div>
@@ -29,7 +29,9 @@
                     </ul>
 
                 </div>
+                <div class="link d-flex justify-content-center">
                 {{$tasks->links()}}
+                </div>
 
             </div>
             <div class="col-lg-8 col-md-3">

@@ -58,6 +58,7 @@ class UserController extends Controller
             ]);
             return redirect('home/' . app()->getLocale() .'/'. Auth::user()->id . '/account');
         }
+        return back();
     }
 }
 

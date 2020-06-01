@@ -27,11 +27,15 @@ form button {
     height: 90vh
 }
 
+.link{
+    border-right: 3px solid gray;
+}
+
 .tasks h2 {
     text-align: center;
 }
 
-.title{
+.titleHome{
     border-bottom: 3px solid gray;
 }
 
