@@ -1,4 +1,4 @@
-Simple task manager
+Simple task manage.
 Main features:
 *CRUD system
 *Personal cabinet
