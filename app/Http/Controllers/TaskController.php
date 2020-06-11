@@ -41,9 +41,8 @@ class TaskController extends Controller
     public function show(Request $request)
     {
         $task = Task::find($request->id);
-//        $status = Task::status($request->id);
-        if(Auth::user()->id != $request->user()->id){
-            abort('404');
+        if(Auth::user()->id != $task->user_id){
+            abort(404);
         }
         return view('tasks.show', compact('task'));
     }
