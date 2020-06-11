@@ -1,10 +1,10 @@
 @component('mail::message')
 # Introduction
 
-The body of your message.
+Welcome to my task manager Toodle!
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => '/'])
+Go to Toodle
 @endcomponent
 
 Thanks,<br>

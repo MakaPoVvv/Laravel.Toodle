@@ -98,7 +98,7 @@
 
                         @if (Route::has('register'))
                             <a href="{{ route('register', app()->getLocale()) }}">{{__('message.register')}}</a>
-                            <a href="https://github.com/laravel/laravel">GitHub</a>
+                            <a href="https://github.com/MakaPoVvv/Laravel.Toodle">GitHub</a>
                         @endif
                     @endauth
                 </div>

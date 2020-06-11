@@ -40,4 +40,7 @@ return[
     'completed' => 'Completed',
 
     'editTask' => 'Edit Task',
+
+    'registerGit' => 'Login with Github'
+
 ];

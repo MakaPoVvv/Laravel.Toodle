@@ -15,36 +15,39 @@ use Illuminate\Support\Facades\Session;
 |
 */
 
-Route::redirect('/', '/'.App::getLocale());
+Route::redirect('/', '/' . App::getLocale());
 
-    Route::get('/{language}', function () {
-        return view('welcome');
-    });
+Route::get('/{language}', function () {
+    return view('welcome');
+});
 
-Route::group(['prefix' => '{language}'], function(){
+Route::group(['prefix' => '{language}'], function () {
     Auth::routes();
 
 });
 
-    Route::get('/home/{language}/{id}', 'TaskController@index')->name('home');
+Route::get('/home/{language}/{id}', 'TaskController@index')->name('home');
 
-    Route::post('/tasks/{language}', 'TaskController@store')->name('tasks.store');
+Route::post('/tasks/{language}', 'TaskController@store')->name('tasks.store');
 
-    Route::get('/tasks/{language}/create', 'TaskController@create')->name('tasks.create');
+Route::get('/tasks/{language}/create', 'TaskController@create')->name('tasks.create');
 
-    Route::get('/tasks/{language}/{id}', 'TaskController@show')->name('tasks.show');
+Route::get('/tasks/{language}/{id}', 'TaskController@show')->name('tasks.show');
 
-    Route::patch('/tasks/{language}/{id}', 'TaskController@complete')->name('tasks.complete');
+Route::patch('/tasks/{language}/{id}', 'TaskController@complete')->name('tasks.complete');
 
-    Route::get('/tasks/{language}/{id}/edit', 'TaskController@edit')->name('tasks.edit');
+Route::get('/tasks/{language}/{id}/edit', 'TaskController@edit')->name('tasks.edit');
 
-    Route::put('/tasks/{language}/update/{id}', 'TaskController@update')->name('tasks.update');
+Route::put('/tasks/{language}/update/{id}', 'TaskController@update')->name('tasks.update');
 
-    Route::delete('/tasks/{language}/{id}', 'TaskController@destroy')->name('tasks.destroy');
+Route::delete('/tasks/{language}/{id}', 'TaskController@destroy')->name('tasks.destroy');
 
-    Route::delete('/tasks/delete/{language}/completed', 'TaskController@destroyCompleted')->name('tasks.destroyCompleted');
+Route::delete('/tasks/delete/{language}/completed', 'TaskController@destroyCompleted')->name('tasks.destroyCompleted');
 
-    Route::get('/home/{language}/{id}/account', 'UserController@index')->name('account');
-    Route::get('/home/{language}/{id}/account/edit', 'UserController@edit')->name('account.edit');
-    Route::patch('/home/{language}/{id}/account/update/image', 'UserController@updateImage')->name('account.updateImage');
-    Route::patch('/home/{language}/{id}/account/update', 'UserController@update')->name('account.update');
+Route::get('/home/{language}/{id}/account', 'UserController@index')->name('account');
+Route::get('/home/{language}/{id}/account/edit', 'UserController@edit')->name('account.edit');
+Route::patch('/home/{language}/{id}/account/update/image', 'UserController@updateImage')->name('account.updateImage');
+Route::patch('/home/{language}/{id}/account/update', 'UserController@update')->name('account.update');
+
+Route::get('{language}/login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('{language}/login/github/callback', 'Auth\LoginController@handleProviderCallback');

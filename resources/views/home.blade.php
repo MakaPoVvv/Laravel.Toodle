@@ -42,7 +42,6 @@
                             <label for="title"></label>
                             <input type="text" name="title" class="form-control" placeholder="{{__('message.placeholder')}}">
                             {{$errors->first('title')}}
-                            <small id="emailHelp" class="form-text text-muted">{{__('message.small')}}</small>
                         </div>
                         <button type="submit" class="btn btn-success">{{__('message.add')}}</button>
                         @csrf

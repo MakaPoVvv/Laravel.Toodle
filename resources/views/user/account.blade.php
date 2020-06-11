@@ -2,10 +2,11 @@
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center text-center">
-                <div class="card mb-3" style="width:100%; max-width:700px;">
-                    <img class="card-img-top" src="{{asset($user->image)}}" height="500" width="100"  alt="Card image cap">
+                <div class="card" style="width:100%; max-width:700px;">
                     <div class="d-flex justify-content-center">
+
                         <div class="form-control">
+
                         <form action="{{url('/home/'.app()->getLocale().'/'.$user->id.'/account/update/image')}}" method ="post" enctype="multipart/form-data">
                             @method('patch')
                             @csrf
@@ -15,8 +16,14 @@
                         </div>
                     </div>
                     <div class="card-body" style="margin-top:50px">
-                        <h2 class="card-title">{{$user->name}}<a href="{{url('/home/'.app()->getLocale().'/'.$user->id.'/account/edit')}}" class="btn btn-link">{{__('message.changeName')}}</a>
-                        </h2>
+                        <div class="pic d-flex flex-column justify-content-center">
+                            <img class="account_image" src="{{asset($user->image)}}">
+                            <div class="account_title">
+                            <h2 class="card-title">{{$user->name}}<a href="{{url('/home/'.app()->getLocale().'/'.$user->id.'/account/edit')}}" class="btn btn-link">{{__('message.changeName')}}</a>
+                            </h2>
+                            </div>
+                        </div>
+
                         <p class="card-text">{{$user->email}}</p>
                         <h3 class="card-text">{{__('message.overall')}}: {{$user->completed}}</h3>
                     </div>

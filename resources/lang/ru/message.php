@@ -41,4 +41,6 @@ return[
 
     'editTask' => 'Редактировать Задание',
 
+    'registerGit' => 'Войти через Github'
+
 ];
