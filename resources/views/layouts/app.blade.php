@@ -33,7 +33,11 @@
                 <a class="navbar-brand" href="{{ url('/'.app()->getLocale()) }}">
                     <img src="{{asset('images/logo.png')}}" height="30" width="100" alt="">
                 </a>
-
+                @auth()
+                <a class="navbar-brand" href="{{ url('/home/'.app()->getLocale().'/'.Auth::user()->id) }}" style="margin-top: 3px">
+                    {{__('message.home')}}
+                </a>
+                @endauth
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -62,8 +66,8 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <span class="Shidden"><img src="{{asset(Auth::user()->image)}}" height="30" width="30" style="border-radius:50%; margin-right: 10px" alt=""><a
                                             href="{{url('/home/'.app()->getLocale().'/'.Auth::user()->id.'/account')}}" class="Shidden">{{ Auth::user()->name }}</a></span>
-                                    <a href="{{route('tasks.create', app()->getLocale())}}" class="hidden btn btn-info">create</a>
-                                    <a href="{{url('/home/'.app()->getLocale().'/'.Auth::user()->id.'/account')}}" class="hidden btn btn-primary">personal cabinet</a>
+                                    <a href="{{route('tasks.create', app()->getLocale())}}" class="hidden btn btn-info">{{__('message.new')}}</a>
+                                    <a href="{{url('/home/'.app()->getLocale().'/'.Auth::user()->id.'/account')}}" class="hidden btn btn-primary">{{__('message.cabinet')}}</a>
                                 </a>
                             </li>
                         @endguest

@@ -40,7 +40,7 @@ class TaskController extends Controller
 
     public function show(Request $request)
     {
-        $task = Task::find($request->id);
+        $task = Task::findOrFail($request->id);
         if(Auth::user()->id != $task->user_id){
             abort(404);
         }

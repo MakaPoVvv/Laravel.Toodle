@@ -4,12 +4,12 @@
         <div class="row">
             <div class="col-lg-3 col-sm-12 col-md-6">
                 <div class="tasks">
-                    <form action="{{route('tasks.destroyCompleted', app()->getLocale())}}" method ='post'>
+                    <form action="{{route('tasks.destroyCompleted', app()->getLocale())}}" method='post'>
                         @method('delete')
                         @csrf
                         <div class="titleHome d-flex align-items-center flex-column">
-                        <h2>{{__('message.all')}}</h2>
-                    <button type = "submit" class="clear">{{__('message.clear')}}</button>
+                            <h2>{{__('message.all')}}</h2>
+                            <button type="submit" class="clear">{{__('message.clear')}}</button>
                         </div>
                     </form>
                     <ul>
@@ -30,7 +30,7 @@
 
                 </div>
                 <div class="link d-flex justify-content-center">
-                {{$tasks->links()}}
+                    {{$tasks->links()}}
                 </div>
 
             </div>
@@ -40,7 +40,8 @@
                     <form action="{{route('tasks.store', app()->getLocale())}}" method="post">
                         <div class="form-group">
                             <label for="title"></label>
-                            <input type="text" name="title" class="form-control" placeholder="{{__('message.placeholder')}}">
+                            <input type="text" name="title" class="form-control"
+                                   placeholder="{{__('message.placeholder')}}">
                             {{$errors->first('title')}}
                         </div>
                         <button type="submit" class="btn btn-success">{{__('message.add')}}</button>

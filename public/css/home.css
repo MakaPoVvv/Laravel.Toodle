@@ -27,7 +27,7 @@ form button {
     height: 90vh
 }
 
-.link{
+.link {
     border-right: 3px solid gray;
 }
 
@@ -35,12 +35,12 @@ form button {
     text-align: center;
 }
 
-.titleHome{
+.titleHome {
     border-bottom: 3px solid gray;
 }
 
 .tasks ul li {
-    margin:10px 0;
+    margin: 10px 0;
 }
 
 .dropdown-toggle:after {
@@ -53,8 +53,23 @@ form button {
     color: #333;
     font-family: "monospace";
 }
+.lang a{
+    text-decoration: none;
+}
 
-.account_image{
+.lang:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.navbar-brand:hover{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.account_image {
     max-width: 1000px;
     width: 50%;
     margin-left: 170px;
@@ -86,17 +101,20 @@ form button {
         margin-right: 50px;
         list-style: none;
     }
-    .new__task{
+
+    .new__task {
         display: flex;
         flex-direction: column;
         right: 50%;
     }
-    .account_image{
+
+    .account_image {
         max-width: 1000px;
         width: 50%;
         margin-left: 90px;
         margin-bottom: 10px;
         border-radius: 20px;
     }
+
 
 }

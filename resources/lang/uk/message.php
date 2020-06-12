@@ -41,7 +41,10 @@ return[
 
     'editTask' => 'Редагувати Завдання',
 
-    'registerGit' => 'Увійти через Github'
+    'registerGit' => 'Увійти через Github',
+
+    'cabinet' => 'Особистий кабінет'
+
 
 
 ];

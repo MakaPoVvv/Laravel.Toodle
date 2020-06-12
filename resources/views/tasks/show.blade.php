@@ -20,7 +20,7 @@
                                     {{__('message.status')}}: {{__('message.statusUncompleted')}}
                                                         @endif
                             </div>
-                            <div class="modal-footer">
+                            <div class="modal-footer d-flex justify-content-center">
                                 @if($task->status == 'uncompleted')
                                     <form action="{{'/tasks/'.app()->getLocale().'/'.$task->id}}" method="post">
                                         @method('Patch')

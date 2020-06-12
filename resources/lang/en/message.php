@@ -15,6 +15,8 @@ return[
     'edit' => 'Edit',
     'delete' => 'Delete',
     'close' => 'Close',
+    'success' => 'Completed',
+
 
     'statusCompleted' => 'Сompleted',
     'statusUncompleted' => 'In progress',
@@ -41,6 +43,8 @@ return[
 
     'editTask' => 'Edit Task',
 
-    'registerGit' => 'Login with Github'
+    'registerGit' => 'Login with Github',
+    'cabinet' => 'Personal cabinet'
+
 
 ];

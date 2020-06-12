@@ -11,7 +11,6 @@
                             <label for="title"></label>
                             <input type="text" name = "title" class="form-control" placeholder="name" value="{{ old('title') ?? $tasks->title}}">
                             {{$errors->first('title')}}
-                            <small id="emailHelp" class="form-text text-muted">Get it done.</small>
                         </div>
                         <button type="submit" class="btn btn-primary">{{__('message.edit')}}</button>
                         @csrf
