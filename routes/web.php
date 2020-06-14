@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Session;
 |
 */
 
+Route::get('{language}/admin', 'AdminController@index')->name('admin');
+
 Route::redirect('/', '/' . App::getLocale());
 
 Route::get('/{language}', function () {

@@ -44,7 +44,10 @@ return[
     'editTask' => 'Edit Task',
 
     'registerGit' => 'Login with Github',
-    'cabinet' => 'Personal cabinet'
+    'cabinet' => 'Personal cabinet',
+
+    'admin' => 'admin',
+    'panel'=>'Admin Panel'
 
 
 ];

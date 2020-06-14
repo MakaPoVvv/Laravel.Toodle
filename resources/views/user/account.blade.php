@@ -31,13 +31,13 @@
                     <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
                         <div class="card-header">{{__('message.completed')}}</div>
                         <div class="card-body">
-                            <h1 class="card-title text-center">{{$completedTasks}}</h1>
+                            <h1 class="card-title text-center">{{$completedTasks ?? ''}}</h1>
                         </div>
                     </div>
                         <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
                             <div class="card-header">{{__('message.uncompleted')}}</div>
                             <div class="card-body">
-                                <h1 class="card-title text-center">{{$uncompletedTasks}}</h1>
+                                <h1 class="card-title text-center">{{$uncompletedTasks ?? ''}}</h1>
                             </div>
                         </div>
                     </div>
