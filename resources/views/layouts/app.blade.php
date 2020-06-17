@@ -34,13 +34,13 @@
                     <img src="{{asset('images/logo.png')}}" height="30" width="100" alt="">
                 </a>
                 @auth()
-                <a class="navbar-brand" href="{{ url('/home/'.app()->getLocale().'/'.Auth::user()->id) }}" style="margin-top: 3px">
+                <a class="navbar-brand" href="{{ url('/home/'.app()->getLocale().'/'.Auth::user()->id) }}">
                     {{__('message.home')}}
                 </a>
                 @endauth
 
                 @can('view', \App\User::class)
-                    <a class="navbar-brand" href="{{ route('admin', app()->getLocale()) }}" style="margin-top: 3px">
+                    <a class="navbar-brand" href="{{ route('admin', app()->getLocale()) }}">
                         {{__('message.admin')}}
                     </a>
                 @endcan

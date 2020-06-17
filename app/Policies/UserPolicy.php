@@ -29,7 +29,7 @@ class UserPolicy
      */
     public function view(User $user)
     {
-        return in_array($user->email, ['admin@admin.com']);
+        return in_array($user->email, ['makaron4ik80@gmail.com']);
 
     }
 

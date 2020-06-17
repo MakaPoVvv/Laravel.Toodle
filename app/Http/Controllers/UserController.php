@@ -48,7 +48,6 @@ class UserController extends Controller
     {
         if (request()->has('image')) {
             $user = User::find($request->id);
-//            dd($request->image);
             $avatarUploaded = request()->file('image');
             $avatarName = time() . "." . $avatarUploaded->getClientOriginalExtension();
             $avatarPath = public_path('/uploads');

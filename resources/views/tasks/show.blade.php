@@ -21,36 +21,30 @@
                                                         @endif
                             </div>
                             <div class="modal-footer d-flex justify-content-center">
+
                                 @if($task->status == 'uncompleted')
                                     <form action="{{'/tasks/'.app()->getLocale().'/'.$task->id}}" method="post">
                                         @method('Patch')
-                                        <button type="submit" class="btn btn-primary">{{__('message.complete')}}</button>
+                                        <button type="submit" class="btn"><img src="{{asset('/images/1-10400_clipart-green-check-mark-icon-check-favicon-png-removebg-preview.png')}}" alt="" width="30" height="30"></button>
                                         @csrf
                                     </form>
 
                                     <form action=" {{url('/tasks/'.app()->getLocale().'/'.$task->id.'/edit')}}">
-                                        <button type="submit" class="btn btn-warning" data-dismiss="modal">{{__('message.edit')}}</button>
+                                        <button type="submit" class="btn"><img src="{{asset('/images/edit.png')}}" alt="" width="43" height="43"></button>
                                         @csrf
                                     </form>
-                                @else
-                                    <form>
-                                        @include('flash-message')
-                                        @csrf
                                         @endif
-                                    </form>
 
 
 
                                     <form action="{{url('/tasks/'.app()->getLocale().'/'.$task->id)}}" method="post">
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger" data-dismiss="modal">{{__('message.delete')}}
-                                        </button>
+                                        <button type="submit" class="btn"><img src="{{asset('/images/627249-delete3-512.png')}}" alt="" width="26" height="26"></button>
                                         @csrf
                                     </form>
 
                                     <form action="{{url('home/'. app()->getLocale(). '/'.Auth::user()->id)}}">
-                                        <button type="submit" class="btn btn-secondary" data-dismiss="modal">{{__('message.close')}}
-                                        </button>
+                                        <button type="submit" class="btn"><img src="{{asset('/images/exit.png')}}" alt="" width="30" height="30"></button>
                                         @csrf
                                     </form>
 

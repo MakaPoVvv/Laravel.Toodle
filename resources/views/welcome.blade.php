@@ -85,12 +85,18 @@
 
             @endauth
             <div class="d-flex align-items-center justify-content-center">
-                <img src="{{asset('/images/flag-3d-round-250.png')}}" width="20"  height="20" alt="">
-                <a class="lang" href="{{url(Route::currentRouteName().'/ru')}}">ru</a>
-                <img src="{{asset('/images/download.png')}}" width="20" , height="20" alt="">
-                <a class="lang" href="{{url(Route::currentRouteName().'/en')}}">en</a>
-                <img src="{{asset('/images/download (1).png')}}" width="20" , height="20" alt="">
-                <a class="lang" href="{{url(Route::currentRouteName().'/uk')}}">uk</a>
+
+                <a class="lang" href="{{url(Route::currentRouteName().'/ru')}}">
+                    <img src="{{asset('/images/flag-3d-round-250.png')}}" width="25"  height="25" alt="">
+                </a>
+
+                <a class="lang" href="{{url(Route::currentRouteName().'/en')}}">
+                    <img src="{{asset('/images/download.png')}}" width="25" , height="25" alt="">
+                </a>
+
+                <a class="lang" href="{{url(Route::currentRouteName().'/uk')}}">
+                    <img src="{{asset('/images/download (1).png')}}" width="25" , height="25" alt="">
+                </a>
             </div>
         </div>
 

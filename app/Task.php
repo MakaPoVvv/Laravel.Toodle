@@ -15,13 +15,4 @@ class Task extends Model
         return $this->belongsTo(User::class);
     }
 
-//    public static function status($id)
-//    {
-//        $task = Task::findOrFail($id);
-//        if($task->status == 'completed'){
-//            return __('message.statusCompleted');
-//        } else{
-//            return __('message.statusUncompleted');
-//        }
-//    }
 }

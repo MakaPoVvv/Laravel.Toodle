@@ -2,19 +2,20 @@
 
 @section('content')
     <div class="container-fluid">
-        <h1>Admin Panel</h1>
+        <h1>{{__('message.panel')}}</h1>
         <table class="table">
             <thead>
-            @foreach($users as $user)
                 <tr>
-                    <th scope="col">Avatar</th>
-                    <th scope="col">Name</th>
+                    <th scope="col">{{__('message.avatar')}}</th>
+                    <th scope="col">{{__('message.name')}}</th>
                     <th scope="col">Email</th>
                     <th scope="col">Role</th>
                 </tr>
             </thead>
             <tbody>
-            <tr>
+            @foreach($users as $user)
+
+                <tr>
                 <th scope="row"><img src="{{asset($user->image)}}" alt="" height="30" width="30"
                                      style="border-radius:50%; margin-right: 10px"></th>
                 <td>{{$user->name}}</td>
