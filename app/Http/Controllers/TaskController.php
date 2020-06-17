@@ -6,6 +6,7 @@ use App\Task;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use function Sodium\increment;
 
 class TaskController extends Controller
 {
@@ -17,7 +18,7 @@ class TaskController extends Controller
 
     public function index(Request $request)
     {
-        $tasks = Task::where('user_id', $request->id)->orderBy('status', 'desc')->paginate(10);
+        $tasks = Task::where('user_id', $request->id)->orderBy('status_id', 'asc')->paginate(10);
         if (Auth::id() != $request->id) {
             abort(404);
         }
@@ -49,7 +50,7 @@ class TaskController extends Controller
 
     public function complete(Request $request)
     {
-        Task::where('id', $request->id)->update(array('status' => 'completed'));
+        Task::where('id', $request->id)->increment('status_id');
         Auth::user()->increment('completed');
 
         return redirect('tasks/' .\app()->getLocale().'/'.$request->id)->with('success', __('message.success'));
@@ -80,7 +81,7 @@ class TaskController extends Controller
 
     public function destroyCompleted()
     {
-        $tasks = Task::where('status', 'completed');
+        $tasks = Task::where('status_id', '3');
 
         $tasks->delete();
 

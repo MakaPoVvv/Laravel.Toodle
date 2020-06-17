@@ -14,9 +14,14 @@
                     </form>
                     <ul>
                         @foreach($tasks as $task)
-                            @if($task->status == 'uncompleted')
+                            @if($task->status_id == 1)
                                 <li>
                                     <a class="btn btn-danger"
+                                       href="{{ url('tasks/'. app()->getLocale().'/'.$task->id) }}">{{$task->title}}</a>
+                                </li>
+                            @elseif($task->status_id == 2)
+                                <li>
+                                    <a class="btn btn-warning"
                                        href="{{ url('tasks/'. app()->getLocale().'/'.$task->id) }}">{{$task->title}}</a>
                                 </li>
                             @else
