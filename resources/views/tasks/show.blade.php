@@ -15,7 +15,8 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                    {{__('message.status')}}: {{$task->getStatus()->status}}
+                                    {{__('message.status')}}: {{$task->getStatus()->status}} <br>
+                                    Priority : {{$task->getPriority()->priority}}
                             </div>
                             <div class="modal-footer d-flex justify-content-center">
 

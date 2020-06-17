@@ -48,6 +48,11 @@
                             <input type="text" name="title" class="form-control"
                                    placeholder="{{__('message.placeholder')}}">
                             {{$errors->first('title')}}
+                            <select class="form-control" name="priority_id">
+                                @foreach(\App\Priority::all() as $priority)
+                                <option value="{{$priority->id}}">{{$priority->priority}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-success">{{__('message.add')}}</button>
                         @csrf

@@ -12,6 +12,12 @@
                             <input type="text" name = "title" class="form-control" placeholder="name" value="{{ old('title') ?? $tasks->title}}">
                             {{$errors->first('title')}}
                         </div>
+                        <select class="form-control" name="priority_id">
+                            <option value="{{$tasks->getPriority()->id}}">{{$tasks->getPriority()->priority}}</option>
+                            @foreach(\App\Priority::all() as $priority)
+                                <option value="{{$priority->id}}">{{$priority->priority}}</option>
+                            @endforeach
+                        </select>
                         <button type="submit" class="btn btn-primary">{{__('message.edit')}}</button>
                         @csrf
                     </form>

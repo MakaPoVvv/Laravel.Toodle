@@ -30,4 +30,14 @@ class Task extends Model
         return Status::find($this->status_id);
     }
 
+    public function getPriority()
+    {
+        return Priority::find($this->priority_id);
+    }
+
+//    public function getAllPriorities()
+//    {
+//        return Priority::find($this->prio;
+//    }
+
 }

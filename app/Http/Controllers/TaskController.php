@@ -34,6 +34,8 @@ class TaskController extends Controller
     {
         auth()->user()->tasks()->create(request()->validate([
             'title' => 'required|min:2|max:100',
+
+            'priority_id' => ''
         ]));
 
         return redirect('home/' . app()->getLocale(). '/'. Auth::user()->id);
@@ -67,6 +69,7 @@ class TaskController extends Controller
         $tasks = Task::find($request->id);
         $tasks->update(request()->validate([
             'title' => 'required|min:2',
+            'priority_id' => ''
         ]));
 
         return redirect('tasks/' .app()->getLocale().'/'. $tasks->id);
