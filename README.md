@@ -4,7 +4,6 @@ Main features:
 *Personal cabinet
 *Registation, authorization
 *Bootstrap components
-*Preloader
 *Sending welcome email-letter
 *Reset password
 *Registation, authorization via github
